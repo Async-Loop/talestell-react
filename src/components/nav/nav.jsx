@@ -1,37 +1,43 @@
-import React from 'react';
+import Burger from './Burger';
+
+import './nav.styles.css';
 
 const Nav = () => {
 	return (
 		<>
 			<header>
-				<div className="container row">
-					<a href="#" className="brand">
+				<div className="container-fluid row">
+					<a className="brand" href="/">
 						<h1>TalesTell</h1>
 					</a>
 					<nav className="nav">
-						<ul className="nav__list">
-							<li className="nav__item">
-								<a className="nav__link" href="#">
-									New Release
+						<ul className="nav-list">
+							<li className="nav-item">
+								<a className="nav--link" href="#">
+									Features
 								</a>
 							</li>
-							<li className="nav__item">
-								<a className="nav__link" href="#">
-									BestSeller
+							<li className="nav-item">
+								<a className="nav--link" href="#">
+									Blog
 								</a>
 							</li>
-							<li className="nav__item">
-								<a className="nav__link" href="#">
-									Mostly Reads
-								</a>
-							</li>
-							<li className="nav__item">
-								<a href="" className="nav__link--button">
-									Google+
+							<li className="nav-item">
+								<a className="nav--link" href="#">
+									About
 								</a>
 							</li>
 						</ul>
+						<ul className="nav-list">
+							<li className="nav-item">
+								<button className="nav--link__login--button">Login</button>
+							</li>
+							<li className="nav-item">
+								<button className="nav--link__signup--button">Sign up</button>
+							</li>
+						</ul>
 					</nav>
+					<Burger />
 				</div>
 			</header>
 		</>
