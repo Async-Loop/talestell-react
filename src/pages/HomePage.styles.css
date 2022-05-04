@@ -1,0 +1,73 @@
+/*Box Model*/
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/*Ascent Colors*/
+
+:root {
+	--primary-color: hsl(29, 100%, 64%);
+	--secondary-color: hsl(245, 17%, 29%);
+
+	--login-btn-bg-color: hsl(0, 0%, 100%);
+	--login-btn-color: hsl(29, 100%, 64%);
+
+	--signup-btn-bg-color: hsl(0, 97%, 65%);
+	--signup-btn-color: hsl(0, 0%, 100%);
+
+	--secondary-btn-bg-color: hsl(245, 17%, 29%);
+	--secondary-btn-color: hsl(0, 0%, 100%);
+
+	--signup-btn-secondary-bg-color: hsl(24, 93%, 52%);
+	--signup-btn-secondary-color: hsl(0, 0%, 100%);
+
+	--icon-color: hsl(0, 0%, 100%);
+	--placeholder-color: hsl(0, 0%, 70%);
+}
+
+body {
+	width: 100%;
+	overflow-x: hidden;
+}
+
+img {
+	max-width: 100%;
+}
+
+/*Layout*/
+.container-fluid {
+	width: 100%;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+	max-width: 1128px;
+	/* border: 2px solid greenyellow; */
+}
+
+.row {
+	display: flex;
+	justify-content: space-between;
+}
+
+.col {
+	width: 100%;
+}
+
+/*.col + .col {
+	margin-left: 15px;
+} */
+
+@media (max-width: 500px) {
+	.container-fluid {
+		width: 100%;
+	}
+	.container {
+		display: block;
+		width: 100%;
+	}
+}

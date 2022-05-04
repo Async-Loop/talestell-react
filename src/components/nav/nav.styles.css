@@ -1,27 +1,13 @@
-h1 {
-	font-size: 3rem;
-	margin-top: 0;
-	max-width: 100%;
-	color: #000;
-}
-
-img {
-	width: 200px;
-	height: 200px;
-}
-
-header {
-	display: flex;
-	justify-content: center;
-	padding: 1rem 0;
-}
-
 .brand {
 	display: flex;
-	padding-top: 30px;
+	align-items: center;
 	text-decoration: none;
-	margin-right: 1rem;
-	/* border: 2px solid salmon; */
+	color: var(--primary-color);
+	font-family: 'Dancing Script', cursive;
+	font-weight: 500;
+	font-size: 2rem;
+	width: 150px;
+	max-width: 100%;
 }
 
 .nav {
@@ -32,31 +18,100 @@ header {
 	flex-shrink: 0;
 }
 
-.nav__list {
+.nav-list {
 	margin-left: auto;
 	padding: 0;
 	list-style: none;
-
 	display: flex;
 	align-items: center;
-	font-size: 1rem;
+	font-size: 1.3rem;
 }
 
-.nav__item + .nav__item {
-	margin-left: 1rem;
+.nav-item + .nav-item {
+	margin-left: 1.3rem;
 }
 
-.nav__link {
-	color: black;
+.nav--link {
+	color: var(--secondary-color);
 	text-decoration: none;
+	text-transform: uppercase;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	font-size: 1.125rem;
+}
+
+.nav--link__login--button {
+	border: none;
+	background: transparent;
+	color: var(--login-btn-color);
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.125rem;
 	text-transform: uppercase;
 }
 
-.nav__link--button {
-	background-color: red;
-	color: #fff;
-	padding: 0.25rem 1rem;
-	text-decoration: none;
+.nav--link__signup--button {
+	margin-right: 10px;
+	padding: 1rem;
+	width: 200px;
+	border: none;
+	border-radius: 10px;
+	background-color: var(--signup-btn-bg-color);
+	color: var(--signup-btn-color);
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.1.25rem;
 	text-transform: uppercase;
-	border-radius: 100px;
+}
+
+.sidenav {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 3;
+	top: 0;
+	left: 0;
+	background-color: var(--secondary-color);
+	padding-top: 50px;
+	transition: 0.5s;
+	overflow: hidden;
+}
+
+.sidenav a {
+	color: hsl(0, 0%, 100%);
+	padding: 7px 7px 7px 30px;
+	text-decoration: none;
+	font-size: 1.3rem;
+	display: block;
+}
+
+.sidenav .sidenav-btn {
+	display: block;
+	padding: 7px 0;
+	width: 120px;
+}
+
+.closebtn {
+	color: white;
+}
+
+.hamburger {
+	display: none;
+}
+@media (max-width: 500px) {
+	.brand {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+	}
+	.brand h1 {
+		font-size: 48px;
+		margin: 0 auto;
+	}
+	.nav {
+		display: none;
+	}
+	.hamburger {
+		display: block;
+		margin: auto 30px;
+	}
 }
