@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import Burger from './Burger';
 
 import './nav.styles.css';
 
 const Nav = () => {
+	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<>
 			<header>
@@ -30,10 +32,18 @@ const Nav = () => {
 						</ul>
 						<ul className="nav-list">
 							<li className="nav-item">
-								<button className="nav--link__login--button">Login</button>
+								<button
+									className="nav--link__login--button"
+									onClick={() => setIsOpen(!isOpen)}>
+									Login
+								</button>
 							</li>
 							<li className="nav-item">
-								<button className="nav--link__signup--button">Sign up</button>
+								<button
+									className="nav--link__signup--button"
+									onClick={() => setIsOpen(!isOpen)}>
+									Sign up
+								</button>
 							</li>
 						</ul>
 					</nav>
