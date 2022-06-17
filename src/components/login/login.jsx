@@ -1,51 +1,41 @@
-import { useState } from 'react';
-import { connect } from 'react-redux';
-import FormInput from '../form-input/form-input';
-
-import { loginStart } from '../../redux/user/user.action';
+import { Field, Form, Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/feature/user';
+import './login.styles.css';
 
 const Login = () => {
-	const [userCredentials, setUserCredentials] = useState({ username: '', password: '' });
-	const { username, password } = userCredentials;
-
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		loginStart(username, password);
-	};
-
-	const handleChange = (e) => {
-		const { value, name } = e.target;
-		e.preventDefault();
-		setUserCredentials({ ...userCredentials, [name]: value });
-	};
-
+	const dispatch = useDispatch();
 	return (
 		<div>
-			<form action="POST" onSubmit={handleSubmit}>
-				<FormInput
-					name="username"
-					type="text"
-					handleChange={handleChange}
-					value={username}
-					label="username"
-					required
-				/>
-				<FormInput
-					name="password"
-					type="password"
-					value={password}
-					handleChange={handleChange}
-					label="password"
-					required
-				/>
-				<button type="submit">LOGIN</button>
-			</form>
+			<Formik
+				initialValues={{ username: '', password: '' }}
+				onSubmit={(values) => {
+					dispatch(login(values));
+				}}>
+				{({ isSubmitting }) => (
+					<Form className="login_info">
+						<Field
+							className="account_details"
+							type="text"
+							name="username"
+							placeholder="username"
+							required
+						/>
+						<Field
+							className="account_details"
+							type="password"
+							name="password"
+							placeholder="password"
+							required
+						/>
+						<button className="login_btn" type="submit" disabled={isSubmitting}>
+							LOGIN
+						</button>
+					</Form>
+				)}
+			</Formik>
 		</div>
 	);
 };
 
-const mapDispatchToProps = (dispatch) => ({
-	loginStart: (username, password) => dispatch(loginStart({ username, password }))
-});
-
-export default connect(null, mapDispatchToProps)(Login);
+export default Login;

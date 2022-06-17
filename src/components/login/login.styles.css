@@ -1,0 +1,30 @@
+.closeModal {
+	margin-left: 95%;
+	border: none;
+	background-color: transparent;
+	color: red;
+}
+
+.login_info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	margin: 0 auto;
+	gap: 1em;
+}
+.account_details {
+	margin-top: 10px;
+	border: 2px solid var(--primary-color);
+	border-radius: 5px;
+	padding: 1em 2em;
+}
+
+.login_btn {
+	background-color: white;
+	color: var(--primary-color);
+	border: none;
+	width: 50%;
+	font-weight: 600;
+}

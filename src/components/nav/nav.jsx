@@ -1,10 +1,28 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Burger from './Burger';
+import Modal from 'react-modal';
+import Login from '../login/login';
+import { logout } from '../../redux/feature/user';
 
 import './nav.styles.css';
 
+Modal.setAppElement('#root');
+
 const Nav = () => {
-	const [isOpen, setIsOpen] = useState(false);
+	const [modalIsOpen, setIsOpen] = useState(false);
+	const openModal = () => setIsOpen(true);
+	const closeModal = () => setIsOpen(false);
+	const dispatch = useDispatch();
+	const { user } = useSelector((state) => state.user);
+	if (user) {
+		return (
+			<div>
+				{user.username}
+				<button onClick={() => dispatch(logout())}>Logout</button>
+			</div>
+		);
+	}
 	return (
 		<>
 			<header>
@@ -33,17 +51,23 @@ const Nav = () => {
 						<ul className="nav-list">
 							<li className="nav-item">
 								<button
+									id="login"
 									className="nav--link__login--button"
-									onClick={() => setIsOpen(!isOpen)}>
-									Login
+									onClick={openModal}>
+									LOGIN
 								</button>
-							</li>
-							<li className="nav-item">
-								<button
-									className="nav--link__signup--button"
-									onClick={() => setIsOpen(!isOpen)}>
-									Sign up
-								</button>
+								<Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+									<button className="closeModal" onClick={closeModal}>
+										X
+									</button>
+									<Login />
+									<p>
+										{`Don't have an account?`}
+										<a className="link_signup" href="">
+											SIGNUP
+										</a>
+									</p>
+								</Modal>
 							</li>
 						</ul>
 					</nav>

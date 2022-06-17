@@ -12,8 +12,8 @@ const SearchPage = () => {
 	const debouncedSearch = useDebounce(search, 500);
 
 	const handleKeyDown = (e) => {
-		if (e.key === 'Enter' && e.target.value) {
-			setSearch(e.target.value);
+		if (e.key === 'Enter' && e.target.value.toLowerCase()) {
+			setSearch(e.target.value.toLowerCase());
 		}
 	};
 
