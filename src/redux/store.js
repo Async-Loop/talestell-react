@@ -1,14 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from '@reduxjs/toolkit';
 
-import user from './feature/user';
-
-const reducer = combineReducers({
-	user
-});
+import authReducer from './feature/auth/authSlice';
 
 const store = configureStore({
-	reducer
+	reducer: {
+		auth: authReducer
+	}
 });
 
 export default store;

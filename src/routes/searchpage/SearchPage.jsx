@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import Card from '../components/card/card';
-import Footer from '../components/footer/Footer';
-import useDebounce from '../hooks/useDebounce';
+import Card from '../../components/card/card';
+import Footer from '../../components/footer/Footer';
+import useDebounce from '../../hooks/useDebounce';
 import './SearchPage.styles.css';
-
 const SearchPage = () => {
 	const [result, setResult] = useState([]);
 	const [search, setSearch] = useState(null);
@@ -56,7 +55,7 @@ const SearchPage = () => {
 	return (
 		<>
 			<header>
-				<img src="assests/header-img.svg" alt="Inside pic of a lib" />
+				<img src="../../../assets/header-img.svg" alt="Inside pic of a lib" />
 			</header>
 			<h1>DISCOVER</h1>
 			<p>{`Let's find you some new books`}</p>

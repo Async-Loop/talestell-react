@@ -1,78 +1,76 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import Burger from './Burger';
-import Modal from 'react-modal';
-import Login from '../login/login';
-import { logout } from '../../redux/feature/user';
+import { logout, reset } from '../../redux/feature/auth/authSlice';
 
-import './nav.styles.css';
-
-Modal.setAppElement('#root');
+import '../../pages/HomePage.styles.css';
 
 const Nav = () => {
-	const [modalIsOpen, setIsOpen] = useState(false);
-	const openModal = () => setIsOpen(true);
-	const closeModal = () => setIsOpen(false);
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const { user } = useSelector((state) => state.user);
-	if (user) {
-		return (
-			<div>
-				{user.username}
-				<button onClick={() => dispatch(logout())}>Logout</button>
-			</div>
-		);
-	}
+	const { user } = useSelector((state) => state.auth);
+	const onLogout = () => {
+		dispatch(logout());
+		dispatch(reset());
+		navigate('/');
+	};
 	return (
 		<>
 			<header>
-				<div className="container-fluid row">
-					<a className="brand" href="/">
+				<nav className="nav">
+					<Link className="brand" to="/">
 						<h1>TalesTell</h1>
-					</a>
-					<nav className="nav">
-						<ul className="nav-list">
-							<li className="nav-item">
-								<a className="nav--link" href="#">
-									Features
-								</a>
-							</li>
-							<li className="nav-item">
-								<a className="nav--link" href="#">
-									Blog
-								</a>
-							</li>
-							<li className="nav-item">
-								<a className="nav--link" href="#">
-									About
-								</a>
-							</li>
-						</ul>
-						<ul className="nav-list">
-							<li className="nav-item">
+					</Link>
+					<ul className="nav_links">
+						<li>
+							<a className="link" href="#">
+								Features
+							</a>
+						</li>
+						<li>
+							<a className="link" href="#">
+								Blog
+							</a>
+						</li>
+						<li>
+							<a className="link" href="#">
+								About
+							</a>
+						</li>
+					</ul>
+					<ul className="button">
+						{user ? (
+							<li>
+								{user.username}
 								<button
-									id="login"
-									className="nav--link__login--button"
-									onClick={openModal}>
-									LOGIN
+									style={{
+										background: 'white',
+										color: `var(--primary-color)`,
+										fontWeight: '600',
+										border: 'none',
+										borderRadius: '5px'
+									}}
+									onClick={onLogout}>
+									LOGOUT
 								</button>
-								<Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
-									<button className="closeModal" onClick={closeModal}>
-										X
-									</button>
-									<Login />
-									<p>
-										{`Don't have an account?`}
-										<a className="link_signup" href="">
-											SIGNUP
-										</a>
-									</p>
-								</Modal>
 							</li>
-						</ul>
-					</nav>
-					<Burger />
-				</div>
+						) : (
+							<>
+								<li>
+									<Link id="login" className="button-login" to="/login">
+										LOGIN
+									</Link>
+								</li>
+								<li>
+									<Link id="login" className="button-signup" to="/signup">
+										SIGNUP
+									</Link>
+								</li>
+							</>
+						)}
+					</ul>
+				</nav>
+				<Burger />
 			</header>
 		</>
 	);
