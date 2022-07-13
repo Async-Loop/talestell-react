@@ -24,10 +24,9 @@ const FeatureSection = () => {
 
 	return (
 		<>
-			<section className="section-two">
-				<div className="container">
-					<h2 className="section-two-title">Features</h2>
-				</div>
+			<section className="container section-two">
+				<h2 className="section-two-title">Features</h2>
+
 				<div className="feature-list">
 					{featureItems.map((featureItem) => (
 						<div key={featureItem.id} className="feature-item">

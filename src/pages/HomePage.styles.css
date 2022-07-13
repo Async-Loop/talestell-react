@@ -3,6 +3,8 @@
 *,
 *::before,
 *::after {
+	margin: 0;
+	padding: 0;
 	box-sizing: border-box;
 }
 
@@ -29,39 +31,241 @@
 }
 
 body {
-	width: 100%;
-	overflow-x: hidden;
+	font-family: 'Open Sans', sans-serif;
+	color: rgba(0, 0, 0, 0.5);
 }
 
 img {
-	max-width: 100%;
+	width: 100%;
+	height: 100% !important;
+	/* border: 2px dashed darkblue; */
 }
 
+/* Typography*/
+h1,
+p {
+	text-align: center;
+}
+
+h1 {
+	color: var(--primary-color);
+	font-size: 2.5rem;
+}
+
+a {
+	color: var(--primary-color);
+	text-decoration: none;
+}
+
+nav {
+	display: flex;
+	max-width: 1440px;
+	margin: 0 auto;
+	margin-top: 1em;
+	align-items: center;
+}
+
+.nav_links {
+	width: 30%;
+	display: flex;
+	gap: 3em;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0 auto;
+	list-style: none;
+}
+
+.link {
+	color: rgba(0, 0, 0, 0.5);
+	font-weight: 600;
+}
+
+.button {
+	width: 30%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	font-weight: 600;
+	list-style: none;
+}
+
+.button-signup {
+	margin-left: 3em;
+	padding: 0.8em 2em;
+	background-color: var(--signup-btn-bg-color);
+	color: hsl(0, 0%, 100%);
+	border-radius: 5px;
+	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+.left-section {
+	width: 50%;
+	max-width: 600px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 2em;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.heading {
+	color: hsl(29, 100%, 64%);
+	font-family: 'Vidaloka', sans-serif;
+	font-weight: 400;
+	font-size: 2.25rem;
+	text-transform: uppercase;
+}
+
+.sub-heading {
+	font-family: 'Noto', sans-serif;
+	font-weight: 400;
+	font-size: 1.3rem;
+	text-align: justify;
+	text-transform: initial;
+}
+
+.button-explore {
+	width: auto;
+	text-align: center;
+	color: hsl(0, 0%, 100%);
+	background-color: var(--secondary-color);
+	padding: 1em 2em;
+	border-radius: 40px;
+}
+
+.objective-img {
+	width: 100%;
+}
+
+.objective-text {
+	width: 60%;
+	max-width: 600px;
+}
+
+.objective-header {
+	color: var(--primary-color);
+	text-transform: uppercase;
+	font-size: 2.25rem;
+}
+
+.objective-desc {
+	font-size: 1rem;
+	text-align: justify;
+}
+
+.footer__section-left {
+	display: flex;
+	flex-direction: column;
+	max-width: 50%;
+	align-items: center;
+}
+
+.footer-icons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 280px;
+	width: 70%;
+	list-style: none;
+	color: hsl(0, 0%, 100%);
+}
+
+.footer__section-right {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center;
+	align-items: center; */
+}
+
+.text {
+	text-align: center;
+}
+
+.signup-heading {
+	font-size: 2.5rem;
+	color: hsl(0, 0%, 100%);
+	font-weight: 600;
+}
+.signup-community {
+	font-size: 1.25rem;
+	color: hsl(0, 0%, 100%);
+	font-weight: 600;
+	text-align: left;
+}
+
+.buttons {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 20px;
+}
+
+.btn-signup {
+	width: 30%;
+	background-color: var(--signup-btn-secondary-bg-color);
+	color: var(--signup-btn-secondary-color);
+	text-align: center;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 5px;
+	padding: 1rem 0;
+}
+
+.copyright-text {
+	color: hsl(0, 0%, 100%);
+}
 /*Layout*/
 .container-fluid {
 	width: 100%;
+	max-width: 1350px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5em 3em;
+	margin-top: 4em;
 }
 
 .container {
 	width: 80%;
-	margin: 0 auto;
-	max-width: 1128px;
+	margin: 4em auto 0 auto;
+	max-width: 1440px;
 	/* border: 2px solid greenyellow; */
 }
 
-.row {
+.section-one {
 	display: flex;
 	justify-content: space-between;
+	padding: 2em 0;
 }
 
-.col {
-	width: 100%;
+.section-three {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
-/*.col + .col {
-	margin-left: 15px;
-} */
+footer {
+	background-color: var(--secondary-color);
+}
 
+@media (max-width: 849px) {
+	ul {
+		text-align: center;
+		transition: all 0.5s;
+	}
+	nav ul li {
+		display: block;
+	}
+	.left-section {
+		width: 100%;
+	}
+	.right-section {
+		margin-top: 1em;
+	}
+}
 @media (max-width: 500px) {
 	.container-fluid {
 		width: 100%;
@@ -69,5 +273,7 @@ img {
 	.container {
 		display: block;
 		width: 100%;
+		padding-left: 8px;
+		padding-right: 8px;
 	}
 }
